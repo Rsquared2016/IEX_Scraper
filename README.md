@@ -9,7 +9,7 @@ The intended method of use for this tool is through the of a scheduler, like cro
 By adding the following 3 lines to your crontab, data will be automatically scraped from the web into the l2.db file.
 
 **NOTE: The times listed below are for US Central Time hours. Please adjust the hour as necessary for your timezone (e.g. New York should have 00 9, 30 9, and 30 3 for the hours and minutes). Additionally, please change the "market_close" setting in the config file as well.**
-
-00 8 * * 1-5 python /<dir_to_package>/IEX_Scraper/main.py pre
-30 8 * * 1-5 python /<dir_to_package>/IEX_Scraper/main.py scraper
+  
+00 8 * * 1-5 python /<dir_to_package>/IEX_Scraper/main.py pre  
+30 8 * * 1-5 python /<dir_to_package>/IEX_Scraper/main.py scraper  
 30 3 * * 1-5 python /<dir_to_package>/IEX_Scraper/main.py post
