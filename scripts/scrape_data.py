@@ -27,7 +27,7 @@ class DataScraper():
         data["time"] = []
         data["ticker"] = ticker
 
-        while datetime.now().hour < 20:
+        while datetime.now().hour < 15:
             req = requests.get("https://api.iextrading.com/1.0/tops?symbols=" + ticker)
             req2 = req.json()[0]
             for k in self.keys:
