@@ -12,7 +12,8 @@ setup(
     install_requires='requests',
     scripts="main.py",
     package_data={
-        'data': ["*.db"]
+        'data': ["*.db"],
+        'cfg':["*.ini"]
     },
     include_package_data=True,
     zip_safe=False
