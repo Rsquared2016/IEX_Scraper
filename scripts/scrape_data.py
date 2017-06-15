@@ -4,10 +4,11 @@ from datetime import datetime
 from multiprocessing import Process
 
 class DataScraper():
-    def __init__(self,root,tickers,delay):
+    def __init__(self,root,tickers,delay,market_close):
         self.root = root
         self.tickers = tickers
         self.delay = delay
+        self.market_close = market_close
 
         self.procs = []
         self.keys = ["bidPrice", "askPrice", "bidSize", "askSize", "lastSalePrice", "lastSaleSize"]
@@ -27,7 +28,7 @@ class DataScraper():
         data["time"] = []
         data["ticker"] = ticker
 
-        while datetime.now().hour < 15:
+        while datetime.now().hour < self.market_close:
             req = requests.get("https://api.iextrading.com/1.0/tops?symbols=" + ticker)
             req2 = req.json()[0]
             for k in self.keys:

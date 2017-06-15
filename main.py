@@ -11,6 +11,7 @@ if __name__ == '__main__':
 
     tickers = cfg["scraper"]["tickers"].split(",")
     delay = int(cfg["scraper"]["delay"])
+    market_close = int(cfg["general"]["market_close"])
 
     parser = ArgumentParser()
     parser.add_argument("module")
@@ -28,5 +29,5 @@ if __name__ == '__main__':
         sess.post_run()
     elif args.module == "scrape" or args.module == "scraper":
         from scripts.scrape_data import *
-        sess = DataScraper(root,tickers,delay)
+        sess = DataScraper(root,tickers,delay,market_close)
         sess.ds_run()
