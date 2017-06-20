@@ -1,4 +1,4 @@
-import requests, pickle, time
+import requests, pickle, time, sys
 
 from datetime import datetime
 from multiprocessing import Process
@@ -35,7 +35,7 @@ class DataScraper():
                 data[k].append(req2[k])
             data["time"].append(time.time())
 
-            if datetime.now().minute == 0:
+            if datetime.now().minute == 0 or datetime.now().minute == 10 or datetime.now().minute == 20 or datetime.now().minute == 30 or datetime.now().minute == 40 or datetime.now().minute == 50:
                 try:
                     with(open("%s/data/checkpoints/%s_data_checkpoint.pkl" % (self.root,ticker),"wb")) as f:
                         pickle.dump(data,f)

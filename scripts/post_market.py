@@ -1,4 +1,4 @@
-import glob, pickle
+import glob, pickle, sys
 
 class PostMarket():
     def __init__(self,root,conn,cursor):
@@ -7,7 +7,7 @@ class PostMarket():
         self.cursor = cursor
 
     def post_run(self):
-        files = glob.glob(self.root + "data/checkpoints/*.pkl")
+        files = glob.glob(self.root + "/data/checkpoints/*.pkl")
         for file in files:
             with(open(file,"rb")) as f:
                 dat = pickle.load(f)
